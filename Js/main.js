@@ -16,6 +16,8 @@ let colorPicker = new iro.ColorPicker("#dtColorPicker", {
 });
 let select = "";
 let dtHex = "";
+let dtBg = "";
+let dtFnt = "";
 
 //Stores the currently selected color in dtHex
 function dtColorChange(color, changes) {
@@ -26,16 +28,31 @@ function dtColorChange(color, changes) {
 
 // listen to a color picker's color:change event
 colorPicker.on("color:change", dtColorChange);
+
 function dtBgc() {
-  select = document.getElementById("navMenu");
+  select = document.getElementById("customThemePreview");
   select.style.backgroundColor = dtHex;
+  dtBg = dtHex;
 }
 //Puts dtHex in all the selected items's css Color attribute
 function dtTxtc() {
-  select = document.getElementsByClassName("colorText");
-  for (let i = 0; i < select.length; i++) {
-    select[i].style.color = dtHex;
-  }
+  // select = document.getElementsByClassName("colorText");
+  select = document.getElementById("customThemePreviewText");
+  // for (let i = 0; i < select.length; i++) { select[i].style.color = dtHex;}
+  select.style.color = dtHex;
+  dtFnt = dtHex;
+}
+function dtCustomThemeApply() {
+  document.documentElement.setAttribute("data-theme", "custom");
+  document.documentElement.style.setProperty("--primary-color", dtBg);
+  document.documentElement.style.setProperty("--font-color", dtFnt);
+}
+function dtCustomThemeReset() {
+  document.documentElement.setAttribute("data-theme", "light");
+  document.documentElement.removeAttribute("style");
+  document.getElementById("customThemePreview").removeAttribute("style");
+  document.getElementById("customThemePreviewText").removeAttribute("style");
+  toggleSwitch.checked = false;
 }
 //DarkMode Switch
 const toggleSwitch = document.querySelector(
