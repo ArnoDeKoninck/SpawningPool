@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="default">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arno De Koninck</title>
+    <link rel="stylesheet" href="../Css/style.Css" />
+  </head>
+  <body>
+    <div class="wrapper d-flex">
+      <div class="menu d-flex -r colorbg" id="navMenu">
+        <div id="menuContainer" class="d-flex">
+          <a href="work.html" class="menuItem d-flex colorText">Recent Work</a>
+          <a href="about.html" class="menuItem d-flex colorText">About</a>
+          <a href="contact.html" class="menuItem d-flex colorText">Contact</a>
+          <a href="portfolio.html" class="menuItem d-flex colorText"
+            >Portfolio</a
+          >
+          <p id="devToolsButton" class="menuItem colorText">Dev Tools</p>
+          <div class="devContainer d-flex">
+            <div class="colorPickerContainer d-flex">
+              <div id="dtColorPicker"></div>
+              <div class="dtColorPickerButtons d-flex">
+                <button
+                  id="dtButtonBg"
+                  class="dtButton d-flex"
+                  onclick="dtBgc()"
+                >
+                  Bg
+                </button>
+                <button
+                  id="dtButtonTxt"
+                  class="dtButton d-flex"
+                  onclick="dtTxtc()"
+                >
+                  Txt
+                </button>
+                <div class="theme-switch-wrapper d-flex">
+                  <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+                  </label>
+                  <em>Dark Theme</em>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="menuImg d-flex">
+          <div id="menuButton" onclick="menuToggle()" class="d-flex"></div>
+        </div>
+      </div>
+      <div class="hero d-flex -r" id="heroId">
+        <p>Page Wrapper</p>
+      </div>
+    </div>
+    <script src="./Js/colorPicker.js"></script>
+    <script src="./Js/main.js"></script>
+  </body>
+</html>
