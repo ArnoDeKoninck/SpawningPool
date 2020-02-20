@@ -81,3 +81,27 @@ if (currentTheme) {
   }
 }
 toggleSwitch.addEventListener("change", switchTheme, false);
+
+//Checks for a small viewport
+let viewportSmall = false;
+function viewportSize() {
+  const vh = Math.max(
+    document.documentElement.clientHeight,
+    window.innerHeight || 0
+  );
+  const vw = Math.max(
+    document.documentElement.clientWidth,
+    window.innerWidth || 0
+  );
+  document.getElementById("displayViewport").innerHTML =
+    "Viewport Width: " + vw + " Height: " + vh;
+
+  vw < 560 ? (viewportSmall = true) : (viewportSmall = false);
+  console.log(viewportSmall);
+
+  if (viewportSmall == true) {
+    document.getElementById("navMenu").classList.add("mobile");
+  } else document.getElementById("navMenu").classList.remove("mobile");
+}
+window.addEventListener("resize", viewportSize);
+viewportSize();

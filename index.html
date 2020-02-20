@@ -8,18 +8,24 @@
   </head>
   <body>
     <div class="wrapper d-flex">
-      <div class="menu d-flex -r colorbg" id="navMenu">
+      <div class="menu d-flex colorbg" id="navMenu">
         <div id="menuContainer" class="d-flex">
-          <a href="work.html" class="menuItem d-flex colorText">Recent Work</a>
-          <a href="about.html" class="menuItem d-flex colorText">About</a>
-          <a href="contact.html" class="menuItem d-flex colorText">Contact</a>
-          <a href="portfolio.html" class="menuItem d-flex colorText"
-            >Portfolio</a
-          >
-          <p id="devToolsButton" class="menuItem colorText">Dev Tools</p>
+          <div class="menuContent d-flex">
+            <a href="work.html" class="menuItem d-flex colorText"
+              >Recent Work</a
+            >
+            <a href="about.html" class="menuItem d-flex colorText">About</a>
+            <a href="contact.html" class="menuItem d-flex colorText">Contact</a>
+            <a href="portfolio.html" class="menuItem d-flex colorText"
+              >Portfolio</a
+            >
+          </div>
           <div class="devContainer d-flex">
             <div class="colorPickerContainer d-flex">
-              <div id="dtColorPicker"></div>
+              <p id="devToolsButton" class="menuItem colorText d-flex">
+                Dev Tools
+              </p>
+              <div id="dtColorPicker" class="d-flex"></div>
               <div class="dtColorPickerButtons d-flex">
                 <button
                   id="dtButtonBg"
@@ -55,12 +61,15 @@
                 <div class="theme-switch-wrapper d-flex">
                   <label class="theme-switch" for="checkbox">
                     <input type="checkbox" id="checkbox" />
-                    <div class="slider round"></div>
+                    <div class="slider round d-flex"></div>
                   </label>
-                  <em>Dark Theme</em>
+                  <em class="d-flex">Dark Theme</em>
                 </div>
               </div>
             </div>
+          </div>
+          <div class="settingsButton d-flex">
+            <img src="/img/Cog.svg" id="devCog" class="d-flex" />
           </div>
         </div>
         <div class="menuImg d-flex">
@@ -68,7 +77,7 @@
         </div>
       </div>
       <div class="hero d-flex -r" id="heroId">
-        <p>Page Wrapper</p>
+        <p id="displayViewport">Page Wrapper</p>
       </div>
     </div>
     <script src="./Js/colorPicker.js"></script>
