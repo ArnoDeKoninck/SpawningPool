@@ -26,7 +26,8 @@
                 Dev Tools
               </p>
               <div id="dtColorPicker" class="d-flex"></div>
-              <div class="dtColorPickerButtons d-flex">
+              <div class="dtColorPickerButtonContainer d-flex">
+                <div id="dtBgBall" class="dtColorBall d-flex"></div>
                 <button
                   id="dtButtonBg"
                   class="dtButton d-flex"
@@ -34,6 +35,31 @@
                 >
                   Bg
                 </button>
+                <div id="dtPriBall" class="dtColorBall d-flex"></div>
+                <button
+                  id="dtButtonPri"
+                  class="dtButton d-flex"
+                  onclick="dtPri()"
+                >
+                  Color 1
+                </button>
+                <div id="dtSecBall" class="dtColorBall d-flex"></div>
+                <button
+                  id="dtButtonSec"
+                  class="dtButton d-flex"
+                  onclick="dtSec()"
+                >
+                  Color 2
+                </button>
+                <div id="dtHeadBall" class="dtColorBall d-flex"></div>
+                <button
+                  id="dtButtonHead"
+                  class="dtButton d-flex"
+                  onclick="dtHeadC()"
+                >
+                  Header
+                </button>
+                <div id="dtFntBall" class="dtColorBall d-flex"></div>
                 <button
                   id="dtButtonTxt"
                   class="dtButton d-flex"
@@ -41,9 +67,6 @@
                 >
                   Txt
                 </button>
-                <div id="customThemePreview" class="d-flex">
-                  <p id="customThemePreviewText">Sample Text</p>
-                </div>
                 <button
                   id="dtCustomApply"
                   onclick="dtCustomThemeApply()"
@@ -58,6 +81,16 @@
                 >
                   Reset
                 </button>
+              </div>
+              <div id="customThemePreviewContainer" class="d-flex">
+                <div id="customThemeBgPreview" class="d-flex">
+                  <div id="customThemePrimaryPreview" class="d-flex"></div>
+                  <div id="customThemeSecondaryPreview" class="d-flex">
+                    <div id="customThemeHeadingPreview" class="d-flex">Heading</div>
+                    <div id="customThemeFontPreview" class="d-flex">Lorem ipsum dolor sit amet consectetur adipisicing elit. </div>
+                  </div>
+                 
+                </div>
                 <div class="theme-switch-wrapper d-flex">
                   <label class="theme-switch" for="checkbox">
                     <input type="checkbox" id="checkbox" />
