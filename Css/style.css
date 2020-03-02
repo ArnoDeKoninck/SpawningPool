@@ -5,11 +5,13 @@
 }
 :root {
   --primary-color: #27a8b7;
-  --secondary-color: #536390;
-  --font-color: #424242;
-  --bg-color: #fff;
-  --heading-color: #292922;
+  --secondary-color: rgb(238, 238, 238);
+  --font-color: rgb(75, 75, 75);
+  --bg-color: rgb(238, 238, 238);
+  --heading-color: rgb(41, 41, 34);
+  --particle-color: #27a8b7;
   --width: 100;
+  --height: 100vh;
 }
 /*Smartphones tot 480px*/
 @media screen and (min-width: px) {
@@ -36,17 +38,19 @@
 
 [data-theme="custom"] {
   --primary-color: #0e0c0c;
-  --secondary-color: #8d121a;
+  --secondary-color: rgb(141, 18, 26);
   --font-color: #e1e1ff;
-  --bg-color: #16161b;
-  --heading-color: #818cab;
+  --bg-color: rgb(22, 22, 27);
+  --heading-color: rgb(129, 140, 171);
+  --particle-color: #8d121a;
 }
 [data-theme="dark"] {
-  --primary-color: #0e0c0c;
-  --secondary-color: #8d121a;
-  --font-color: #e1e1ff;
-  --bg-color: #16161b;
-  --heading-color: #818cab;
+  --primary-color: #1b1b1b;
+  --secondary-color: rgb(141, 18, 26);
+  --font-color: rgb(225, 225, 255);
+  --bg-color: rgb(22, 22, 27);
+  --heading-color: rgb(129, 140, 171);
+  --particle-color: #8d121a;
 }
 body {
   background-color: var(--bg-color);
@@ -56,18 +60,29 @@ body {
 .wrapper {
   width: 100%;
   height: 100vh;
+  flex-flow: row nowrap;
   /* background-color: gray; */
 }
 .hero {
-  width: calc(95vw * var(--width));
+  width: 95%;
+  min-width: 95%;
   flex-wrap: wrap;
-  flex-basis: 95%;
   flex-flow: row nowrap;
   /* transition: all 500ms ease;
   transform: translateX(5vw); */
 }
+.heroContent {
+  width: 90%;
+  margin: 0 auto;
+  flex-flow: row wrap;
+}
+.lander {
+  height: var(--height);
+  width: 100%;
+}
 .menu {
   min-width: 70px;
+  max-width: 75px;
   width: 5%;
   height: 100vh;
   margin: 0;
@@ -89,32 +104,50 @@ body {
 }
 .menu.menuToggle {
   transition: all 500ms ease;
-  width: 50%;
-  flex-flow: row wrap;
+  width: 30%;
+  min-width: 300px;
+  max-width: 400px;
+  flex-flow: row nowrap;
   transform: translateX(0);
 }
 .hero.open {
-  width: calc(75vw * var(--width));
+  width: 70%;
   transition: all 500ms ease;
   /* transform: translateX(25vw); */
 }
-.mobile {
-  background-color: red;
+
+.hero.mobile {
+  width: 100%;
+  height: 100%;
+}
+.menu.mobile {
   position: absolute;
   margin: 2%;
   width: 5%;
   height: 5%;
+}
+.menu.mobile.sticky {
+  position: fixed;
+  top: 0;
+}
+.menu.mobile.menu.menuToggle {
+  max-width: 100%;
 }
 .menu.mobile > #menuContainer {
   display: none;
   height: 90%;
   flex-flow: column wrap;
   margin: 0 auto 0 auto;
+  transition-delay: 500ms;
+  transition: all 250ms ease;
+  transform: translateY(-200%);
 }
 .menu.mobile > #menuContainer.open {
   display: flex;
+  padding-right: 0px;
+  transform: translateY(0%);
 }
-.mobile > #menuContainer > .menuContent {
+.mobile.openSettings > #menuContainer > .menuContent {
   height: 100%;
   width: 50%;
   flex-flow: column nowrap;
@@ -140,6 +173,7 @@ body {
   left: 2%;
   bottom: 2%;
   position: absolute;
+  transform: translateX(0px);
 }
 .menu.mobile.menuToggle > * .settingsButton {
   top: 2%;
@@ -193,14 +227,16 @@ body {
 .menu #menuContainer {
   /* border: 1px solid black;*/
   height: 100%;
-  margin: 0 70px 0 auto;
-  flex-flow: column wrap;
+  padding-right: 70px;
+  margin: auto;
+  flex-flow: column nowrap;
   justify-content: center;
   align-content: center;
   transition: all 500ms ease;
   transition-delay: 500ms;
   transform: translateY(-100%);
 }
+
 .menuItem {
   color: white;
   padding: 2rem 1rem;
@@ -217,6 +253,7 @@ body {
 
 .d-flex {
   display: flex;
+  transition: all 250ms ease;
 }
 .-r {
   display: relative;
@@ -272,6 +309,7 @@ body {
   height: 45%;
   margin: 10% auto;
   flex-flow: row wrap;
+  display: none;
 }
 #devToolsButton {
   padding-bottom: 0px;
@@ -282,12 +320,21 @@ body {
   align-self: center;
 }
 .settingsButton {
+  position: absolute;
   width: 30px;
   height: 30px;
   border-radius: 4px;
   justify-content: center;
   background-color: var(--secondary-color);
   margin: auto;
+  transition: all 250ms ease;
+  transform: translateX(-100px);
+  bottom: 2%;
+  left: 2%;
+  z-index: 666;
+}
+.menu.menu.menuToggle > .settingsButton {
+  transform: translateX(0px);
 }
 .borderTop {
   border-top: gray;
@@ -360,4 +407,54 @@ em {
 }
 input:checked + .slider:before em {
   color: white;
+}
+
+.menu.openSettings > * > .devContainer {
+  display: flex;
+}
+.enterBottom {
+  transition: all 250ms ease;
+  transform: translateY(-200%);
+}
+.enterTop {
+  transition: all 250ms ease;
+  transform: translateY(-100%);
+}
+.sticky {
+  position: fixed;
+  top: 0;
+}
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+#particle-js {
+  width: 100%;
+  height: 100%;
+}
+/* ---------------------------------------------Hex---------------------------- */
+.hexagon {
+  flex-flow: column wrap;
+  height: 100%;
+}
+.hexTop {
+  width: 0;
+  border-bottom: 30px solid #6c6;
+  border-left: 52px solid transparent;
+  border-right: 52px solid transparent;
+}
+
+.hexMiddle {
+  width: 104px;
+  height: 60px;
+  background-color: #6c6;
+}
+
+.hexBot {
+  width: 0;
+  border-top: 30px solid #6c6;
+  border-left: 52px solid transparent;
+  border-right: 52px solid transparent;
 }

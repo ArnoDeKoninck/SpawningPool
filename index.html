@@ -11,18 +11,18 @@
       <div class="menu d-flex colorbg" id="navMenu">
         <div id="menuContainer" class="d-flex">
           <div class="menuContent d-flex">
-            <a href="work.html" class="menuItem d-flex colorText"
+            <a href="work.html" class="menuItem d-flex"
               >Recent Work</a
             >
-            <a href="about.html" class="menuItem d-flex colorText">About</a>
-            <a href="contact.html" class="menuItem d-flex colorText">Contact</a>
-            <a href="portfolio.html" class="menuItem d-flex colorText"
+            <a href="about.html" class="menuItem d-flex ">About</a>
+            <a href="contact.html" class="menuItem d-flex ">Contact</a>
+            <a href="portfolio.html" class="menuItem d-flex"
               >Portfolio</a
             >
           </div>
-          <div class="devContainer d-flex">
+          <div class="devContainer d-flex enterBottom">
             <div class="colorPickerContainer d-flex">
-              <p id="devToolsButton" class="menuItem colorText d-flex">
+              <p id="devToolsButton" class="menuItem  d-flex">
                 Dev Tools
               </p>
               <div id="dtColorPicker" class="d-flex"></div>
@@ -68,19 +68,37 @@
               </div>
             </div>
           </div>
-          <div class="settingsButton d-flex">
-            <img src="/img/Cog.svg" id="devCog" class="d-flex" />
-          </div>
+        </div>
+        <div class="settingsButton d-flex">
+          <img
+            src="/img/Cog.svg"
+            onclick="openSettings()"
+            id="devCog"
+            class="d-flex"
+          />
         </div>
         <div class="menuImg d-flex">
           <div id="menuButton" onclick="menuToggle()" class="d-flex"></div>
         </div>
       </div>
       <div class="hero d-flex -r" id="heroId">
-        <p id="displayViewport">Page Wrapper</p>
+        <div class="background" id="particles-js"></div>
+        <div class="heroContent d-flex">
+          <div class="lander">
+            
+              
+              <p id="displayViewport">Page Wrapper</p>
+          <div class="hexagon d-flex" id="hexParent">
+            <div class="hexTop d-flex"></div>
+            <div class="hexMiddle d-flex"></div>
+            <div class="hexBot d-flex"></div>
+          </div>
+        </div>
       </div>
     </div>
     <script src="./Js/colorPicker.js"></script>
+    <script src="./Js/particles.js"></script>
     <script src="./Js/main.js"></script>
+    <script src="./Js/jquery-3.4.1.min.js"></script>
   </body>
 </html>
