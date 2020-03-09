@@ -108,7 +108,7 @@ function viewportSize() {
   );
   document.getElementById("displayViewport").innerHTML =
     "Viewport Width: " + vw + " Height: " + vh;
-
+  document.documentElement.style.setProperty("--scale", (vw * 0.9) / 500);
   vw < 560 ? (viewportSmall = true) : (viewportSmall = false);
   console.log(viewportSmall);
 
@@ -130,12 +130,15 @@ function openSettings() {
   bottom[0].classList.toggle("enterBottom");
 }
 let menu = document.getElementById("navMenu");
+let bg = document.getElementById("particles-js");
 let sticky = menu.offsetTop;
 function menuScroll() {
   if (window.pageYOffset >= sticky) {
     menu.classList.add("sticky");
+    bg.classList.add("sticky");
   } else {
     menu.classList.remove("sticky");
+    bg.classList.remove("sticky");
   }
 }
 window.onscroll = function() {
@@ -186,7 +189,7 @@ particlesJS(
   {
     particles: {
       number: {
-        value: 300,
+        value: 200,
         density: {
           enable: true,
           value_area: 800
@@ -232,18 +235,18 @@ particlesJS(
       },
       line_linked: {
         enable: true,
-        distance: 150,
+        distance: 200,
         color: particleColor,
         opacity: 0.4,
         width: 1
       },
       move: {
         enable: true,
-        speed: 6,
+        speed: 3,
         direction: "none",
-        random: false,
+        random: true,
         straight: false,
-        out_mode: "out",
+        out_mode: "bounce",
         attract: {
           enable: false,
           rotateX: 600,

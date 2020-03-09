@@ -6,34 +6,14 @@
 :root {
   --primary-color: #27a8b7;
   --secondary-color: #3bafa6;
-  --font-color: #d5d5d5;
+  --font-color: #757575;
   --bg-color: #fff;
-  --heading-color: #36798a;
+  --heading-color: #3a506b;
   --particle-color: #27a8b7;
   --width: 100;
   --height: 100vh;
-}
-/*Smartphones tot 480px*/
-@media screen and (min-width: px) {
-  :root {
-    --width: 0.25;
-  }
-}
-@media screen and (min-width: 768px) {
-  :root {
-    --width: 0.5;
-  }
-}
-@media screen and (min-width: 992px) {
-  :root {
-    --width: 0.75;
-  }
-}
-/*Large screens from 1200px and up*/
-@media screen and (min-width: 1200px) {
-  :root {
-    --width: 1;
-  }
+  --scale: 3;
+  --border-color: var(--font-color);
 }
 
 [data-theme="custom"] {
@@ -41,15 +21,16 @@
   --secondary-color: rgb(141, 18, 26);
   --font-color: #e1e1ff;
   --bg-color: rgb(22, 22, 27);
-  --heading-color: rgb(129, 140, 171);
+  --heading-color: rgb(212, 114, 48);
   --particle-color: #8d121a;
 }
+
 [data-theme="dark"] {
   --primary-color: #1b1b1b;
   --secondary-color: rgb(141, 18, 26);
-  --font-color: rgb(225, 225, 255);
+  --font-color: rgb(212, 212, 212);
   --bg-color: rgb(22, 22, 27);
-  --heading-color: rgb(129, 140, 171);
+  --heading-color: rgb(163, 53, 20);
   --particle-color: #8d121a;
 }
 body {
@@ -59,26 +40,35 @@ body {
 }
 .wrapper {
   width: 100%;
-  height: 100vh;
-  flex-flow: row nowrap;
+  height: 100%;
+  flex-flow: row wrap;
   /* background-color: gray; */
 }
 .hero {
-  width: 95%;
+  width: 100%;
   min-width: 95%;
   flex-wrap: wrap;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
+  margin-left: 4%;
+
   /* transition: all 500ms ease;
   transform: translateX(5vw); */
 }
 .heroContent {
   width: 90%;
-  margin: 0 auto;
+  margin: 10% auto;
   flex-flow: row wrap;
 }
 .lander {
   height: var(--height);
   width: 100%;
+  background: var(--bg-color);
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 6px 13px -3px rgba(0, 0, 0, 0.48);
+}
+a {
+  text-decoration: none;
 }
 .menu {
   min-width: 70px;
@@ -265,6 +255,10 @@ body {
 
 .colorbg {
   background-color: var(--primary-color);
+  background-image: linear-gradient(
+    var(--primary-color) 30%,
+    var(--heading-color)
+  );
 }
 .colorText {
   color: var(--font-color);
@@ -306,11 +300,12 @@ body {
   background-color: var(--font-color);
 }
 #dtCustomReset {
-  align-self: flex-start;
+  justify-self: center;
+  margin: auto;
 }
 #dtCustomApply {
-  justify-self: flex-start;
-  align-self: flex-end;
+  justify-self: center;
+  margin: auto;
 }
 .dtColorPickerButtonContainer {
   flex-flow: row wrap;
@@ -321,6 +316,7 @@ body {
 #customThemePreviewContainer {
   flex-flow: row wrap;
   width: 50%;
+  height: 150px;
 }
 #customThemeBgPreview {
   margin: 2px;
@@ -482,37 +478,229 @@ input:checked + .slider:before em {
   position: fixed;
   top: 0;
 }
+.background.sticky {
+  position: fixed;
+  top: 0;
+}
 .background {
   position: absolute;
   width: 100%;
   height: 100%;
   z-index: -1;
+  background: url("../img/Hex.svg")
+    /*radial-gradient(circle, var(--secondary-color), var(--bg-color) 80%)*/;
+  background-size: 2%, auto;
+
+  background-blend-mode: multiply;
 }
 #particle-js {
   width: 100%;
   height: 100%;
 }
+#displayViewport {
+  position: absolute;
+  justify-self: flex-start;
+  align-self: flex-start;
+}
 /* ---------------------------------------------Hex---------------------------- */
 .hexagon {
+  position: absolute;
   flex-flow: column wrap;
-  height: 100%;
+  height: auto;
+  width: auto;
+
+  z-index: 3;
 }
+.hex3 {
+  align-self: flex-end;
+  transform: translate(0px, calc(-33px * var(--scale)));
+}
+.hex2 {
+  transform: translate(calc(- 2px * var(--scale)));
+}
+.hex1 {
+  transform: translate(calc(2px * var(--scale)));
+}
+#hexContainer {
+  width: 40%;
+  height: auto;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.hexagon.hexagonBorder {
+  position: relative;
+  --border-color: var(--secondary-color);
+  z-index: 1;
+}
+
+.innerHex {
+  transform: scale(0.9);
+}
+
 .hexTop {
   width: 0;
-  border-bottom: 30px solid #6c6;
-  border-left: 52px solid transparent;
-  border-right: 52px solid transparent;
+  border-bottom: calc(30px * var(--scale)) solid var(--border-color);
+  border-left: calc(52px * var(--scale)) solid transparent;
+  border-right: calc(52px * var(--scale)) solid transparent;
 }
 
 .hexMiddle {
-  width: 104px;
-  height: 60px;
-  background-color: #6c6;
+  width: calc(104px * var(--scale));
+  height: calc(60px * var(--scale));
+  background-color: var(--border-color);
 }
 
 .hexBot {
   width: 0;
-  border-top: 30px solid #6c6;
-  border-left: 52px solid transparent;
-  border-right: 52px solid transparent;
+  border-top: calc(30px * var(--scale)) solid var(--border-color);
+  border-left: calc(52px * var(--scale)) solid transparent;
+  border-right: calc(52px * var(--scale)) solid transparent;
+}
+.innerHex svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url("../img/Vault.svg");
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.cvHeader {
+  text-align: center;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+.locIcon {
+  background: url("../img/LocationIcon.png") center/contain no-repeat;
+  width: 30px;
+  height: 30px;
+}
+.cvHeader h2 {
+  font-weight: bold;
+}
+.cvHeaderInfo {
+  width: 100%;
+  padding: 0 0 3%;
+  border-bottom: 1px solid var(--heading-color);
+}
+.locContainer {
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+#cvPicture {
+  margin: auto auto 20px;
+  background: url("../img/Portrait2019_512.png") no-repeat;
+  background-size: contain;
+  width: calc(100px * var(--scale));
+  height: calc(100px * var(--scale));
+}
+.artIcon {
+  background: url("../img/art-painting-icon-image-gallery-10.png")
+    center/contain;
+  width: 30px;
+  height: 30px;
+}
+.linkedInIcon {
+  background: url("../img/LinkedIn-Logo-R.svg") center/contain no-repeat;
+  width: 30px;
+  height: 30px;
+}
+.gitHubIcon {
+  background: url("../img/githubLogo.svg") center/contain no-repeat;
+  width: 30px;
+  height: 30px;
+}
+.headerInfoContainer {
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.mailIcon {
+  width: 30px;
+  height: 30px;
+  background: url("../img/aiga_mail-512.png") no-repeat;
+  background-size: contain;
+}
+#cvContent a {
+  text-align: left;
+  text-transform: none;
+  color: var(--font-color);
+  padding: 0 5px;
+}
+#cvContent a:hover {
+  color: var(--heading-color);
+}
+.leftColumn {
+  margin: 1rem;
+  width: 66%;
+}
+.rightColumn {
+  width: 33%;
+}
+.cvMiddleContainer {
+  background: var(--bg-color);
+  flex-flow: row nowrap;
+  padding: 3% 0 3%;
+  border-bottom: 1px solid var(--heading-color);
+  border-radius: 20px 20px 0 0;
+}
+.hexImg {
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  background: var(--heading-color) url("../img/HexIcon.svg") center/contain
+    no-repeat;
+  background-blend-mode: overlay;
+}
+.hexMask {
+  mask-image: url("../img/HexIcon.svg");
+  -webkit-mask-image: url("../img/HexIcon.svg");
+  mask-mode: alpha;
+  -webkit-mask-mode: alpha;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-size: 27px;
+  -webkit-mask-size: 27px;
+  mask-position: center;
+  -webkit-mask-position: center;
+}
+
+.cvContent {
+  margin: 3% 0 3% calc(30px + 1rem);
+  flex-flow: row wrap;
+  width: 100%;
+}
+.f-row {
+  flex-flow: row wrap;
+}
+.cvHeader {
+  padding: 0 1rem;
+  font-size: 1rem;
+  font-weight: bolder;
+  color: var(--heading-color);
+}
+.educationContainer .cvContent > * {
+  padding: 1rem 0;
+}
+.skillsContent {
+  width: 50%;
+}
+.cvBottomContainer {
+  background: var(--bg-color);
+  padding: 3% 0 3%;
+}
+.cvLearningContainer {
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-color);
+  border-radius: 0 0 20px 20px;
+}
+.cvLearningContainer .cvContent {
+  justify-content: center;
+}
+.containerBorder {
+  box-shadow: 1px 10px 15px -6px rgba(0, 0, 0, 0.75);
 }
