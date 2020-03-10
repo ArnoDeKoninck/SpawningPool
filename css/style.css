@@ -83,7 +83,7 @@ a {
   z-index: 5;
 }
 #menuButton {
-  background-image: url("../img/menu_icon.png");
+  background-image: url("./img/menu_icon.png");
   background-size: contain;
   background-repeat: no-repeat;
   width: 60px;
@@ -204,7 +204,7 @@ a {
 }
 .menuImg {
   position: absolute;
-  background: url(".../img/menu_bg.png") center center;
+  background: url("./img/menu_bg.png") center center;
   background-blend-mode: screen;
   mix-blend-mode: multiply;
   background-size: cover;
