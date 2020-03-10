@@ -113,53 +113,28 @@
           <div id="menuButton" onclick="menuToggle()" class="d-flex"></div>
         </div>
       </div>
-      <div class="hero" id="heroId">
+      <div class="hero d-flex" id="heroId">
         <div class="background" id="particles-js"></div>
         <div class="lander d-flex">
           <p id="displayViewport">Page Wrapper</p>
           <div id="hexContainer" class="d-flex">
             <div class="hex1 d-flex">
-              <div class="hexagon innerHex d-flex" id="hexMain">
-                <div class="hexTop d-flex"></div>
-                <div class="hexMiddle d-flex"></div>
-                <div class="hexBot d-flex"></div>
+                <div class =" hexBorder landerHexMask d-flex">
+                  <div class ="innerHex landerHexMask d-flex"><div class="icon d-flex" id="mainHex"></div></div>
+                </div>
               </div>
-              <div class=" hexagon hexagonBorder d-flex" id="hexMainBorder">
-                <div class="hexTop d-flex"></div>
-                <div class="hexMiddle d-flex"></div>
-                <div class="hexBot d-flex"></div>
+              <div class="hex2 d-flex">
+                <div class =" hexBorder landerHexMask d-flex">
+                  <div  class =" innerHex landerHexMask d-flex"><div class="icon d-flex" id="portfolioHex"></div></div>
+                </div>
               </div>
-            </div>
-            <div class=" hex2 d-flex">
-              <div class="hexagon innerHex   d-flex" id="hexPortfolio">
-                <svg src="./img/Vault.svg"></svg>
-                <div class="hexTop d-flex"></div>
-                <div class="hexMiddle d-flex"></div>
-                <div class="hexBot d-flex"></div>
-              </div>
-              <div
-                class=" hexagon hexagonBorder d-flex"
-                id="hexPortfolioBorder"
-              >
-                <div class="hexTop d-flex"></div>
-                <div class="hexMiddle d-flex"></div>
-                <div class="hexBot d-flex"></div>
-              </div>
-            </div>
-            <div class="hex3 d-flex">
-              <div class="hexagon innerHex d-flex" id="hexCV">
-                <div class="hexTop d-flex"></div>
-                <div class="hexMiddle d-flex"></div>
-                <div class="hexBot d-flex"></div>
-              </div>
-              <div class=" hexagon hexagonBorder d-flex" id="hexCVBorder">
-                <div class="hexTop d-flex"></div>
-                <div class="hexMiddle d-flex"></div>
-                <div class="hexBot d-flex"></div>
+              <div class="hex3 d-flex">
+                <div class =" hexBorder landerHexMask d-flex">
+                  <div class ="innerHex landerHexMask d-flex"><div class="icon d-flex" id="cvHex"></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
         <div class="heroContent">
         <div class="sectionContainer" id="cvContainer">
           <div class="sectionContent" id="cvContent">
@@ -241,6 +216,7 @@
           </div>
         </div>
       </div>
+    </div>
     </div>
     <script src="./js/colorPicker.js"></script>
     <script src="./js/particles.js"></script>

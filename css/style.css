@@ -13,7 +13,7 @@
   --width: 100;
   --height: 100vh;
   --scale: 3;
-  --border-color: var(--font-color);
+  --border-color: var(--bg-color);
 }
 
 [data-theme="custom"] {
@@ -512,18 +512,51 @@ input:checked + .slider:before em {
   z-index: 3;
 }
 .hex3 {
-  align-self: flex-end;
   transform: translate(0px, calc(-33px * var(--scale)));
+  width: 45%;
+  height: auto;
 }
 .hex2 {
-  transform: translate(calc(- 2px * var(--scale)));
+  transform: translate(calc(-2px * var(--scale)));
+  width: 45%;
+  height: auto;
 }
 .hex1 {
   transform: translate(calc(2px * var(--scale)));
+  width: 45%;
+  height: auto;
+}
+.innerHex {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  background: var(--border-color);
+  justify-content: center;
+  align-items: center;
+}
+
+* > .hexBorder {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-color);
+}
+* > .landerHexMask {
+  mask-image: url("../img/lander_hex.svg");
+  -webkit-mask-image: url("../img/lander_hex.svg");
+  mask-mode: alpha;
+  -webkit-mask-mode: alpha;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-size: 100%;
+  -webkit-mask-size: 98%;
+  mask-position: center;
+  -webkit-mask-position: center;
 }
 #hexContainer {
   width: 40%;
-  height: auto;
+  min-height: 40vw;
   flex-flow: row wrap;
   justify-content: center;
 }
@@ -533,11 +566,6 @@ input:checked + .slider:before em {
   --border-color: var(--secondary-color);
   z-index: 1;
 }
-
-.innerHex {
-  transform: scale(0.9);
-}
-
 .hexTop {
   width: 0;
   border-bottom: calc(30px * var(--scale)) solid var(--border-color);
@@ -557,15 +585,38 @@ input:checked + .slider:before em {
   border-left: calc(52px * var(--scale)) solid transparent;
   border-right: calc(52px * var(--scale)) solid transparent;
 }
-.innerHex svg {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-image: url("../img/Vault.svg");
-  background-repeat: no-repeat;
-  z-index: 1;
-}
 
+.icon {
+  mask-mode: alpha;
+  -webkit-mask-mode: alpha;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-size: 100%;
+  -webkit-mask-size: 100%;
+  mask-position: center;
+  -webkit-mask-position: center;
+  z-index: 1;
+  width: 70%;
+  height: 70%;
+  position: absolute;
+  background: var(--heading-color);
+  align-self: center;
+  top: 12.5%;
+}
+.icon#mainHex {
+  mask-image: url("../img/cv_icon.svg");
+  -webkit-mask-image: url("../img/cv_icon.svg");
+}
+.icon#cvHex {
+  mask-image: url("../img/cv_icon.svg");
+  -webkit-mask-image: url("../img/cv_icon.svg");
+}
+.icon#portfolioHex {
+  mask-image: url("../img/portfolio_icon.svg");
+  -webkit-mask-image: url("../img/portfolio_icon.svg");
+  width: 70%;
+  height: 70%;
+}
 .cvHeader {
   text-align: center;
   flex-flow: column wrap;
@@ -699,6 +750,7 @@ input:checked + .slider:before em {
 }
 .cvLearningContainer .cvContent {
   justify-content: center;
+  text-align: center;
 }
 .containerBorder {
   box-shadow: 1px 10px 15px -6px rgba(0, 0, 0, 0.75);
