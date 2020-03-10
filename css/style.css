@@ -83,7 +83,7 @@ a {
   z-index: 5;
 }
 #menuButton {
-  background-image: url("/img/menu_icon.png");
+  background-image: url("../img/menu_icon.png");
   background-size: contain;
   background-repeat: no-repeat;
   width: 60px;
@@ -204,7 +204,7 @@ a {
 }
 .menuImg {
   position: absolute;
-  background: url("/img/menu_bg.png") center center;
+  background: url(".../img/menu_bg.png") center center;
   background-blend-mode: screen;
   mix-blend-mode: multiply;
   background-size: cover;
@@ -487,7 +487,7 @@ input:checked + .slider:before em {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: url("/img/hex_bg.svg")
+  background: url("./img/hex_bg.svg")
     /*radial-gradient(circle, var(--secondary-color), var(--bg-color) 80%)*/;
   background-size: 2%, auto;
 
@@ -561,7 +561,7 @@ input:checked + .slider:before em {
   width: 100%;
   height: 100%;
   position: absolute;
-  background-image: url("/img/Vault.svg");
+  background-image: url("./img/Vault.svg");
   background-repeat: no-repeat;
   z-index: 1;
 }
@@ -573,7 +573,7 @@ input:checked + .slider:before em {
   align-items: center;
 }
 .locIcon {
-  background: url("/img/location_icon.png") center/contain no-repeat;
+  background: url("./img/location_icon.png") center/contain no-repeat;
   width: 30px;
   height: 30px;
 }
@@ -592,23 +592,23 @@ input:checked + .slider:before em {
 }
 #cvPicture {
   margin: auto auto 20px;
-  background: url("/img/Portrait2019_512.png") no-repeat;
+  background: url("./img/Portrait2019_512.png") no-repeat;
   background-size: contain;
   width: calc(100px * var(--scale));
   height: calc(100px * var(--scale));
 }
 .artIcon {
-  background: url("/img/art_icon.png") center/contain;
+  background: url("./img/art_icon.png") center/contain;
   width: 30px;
   height: 30px;
 }
 .linkedInIcon {
-  background: url("/img/linkedIn_icon.svg") center/contain no-repeat;
+  background: url("./img/linkedIn_icon.svg") center/contain no-repeat;
   width: 30px;
   height: 30px;
 }
 .gitHubIcon {
-  background: url("/img/githu_icon.svg") center/contain no-repeat;
+  background: url("./img/githu_icon.svg") center/contain no-repeat;
   width: 30px;
   height: 30px;
 }
@@ -620,7 +620,7 @@ input:checked + .slider:before em {
 .mailIcon {
   width: 30px;
   height: 30px;
-  background: url("/img/mail_icon.png") no-repeat;
+  background: url("./img/mail_icon.png") no-repeat;
   background-size: contain;
 }
 #cvContent a {
@@ -650,13 +650,13 @@ input:checked + .slider:before em {
   width: 30px;
   height: 30px;
   min-width: 30px;
-  background: var(--heading-color) url("/img/hex_icon.svg") center/contain
+  background: var(--heading-color) url("./img/hex_icon.svg") center/contain
     no-repeat;
   background-blend-mode: overlay;
 }
 .hexMask {
-  mask-image: url("/img/hex_icon.svg");
-  -webkit-mask-image: url("/img/hex_icon.svg");
+  mask-image: url("./img/hex_icon.svg");
+  -webkit-mask-image: url("./img/hex_icon.svg");
   mask-mode: alpha;
   -webkit-mask-mode: alpha;
   mask-repeat: no-repeat;
