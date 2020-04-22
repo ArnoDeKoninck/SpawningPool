@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Arno De Koninck</title>
-    <link rel="stylesheet" href="./css/style.css" />
+
+    <link rel="stylesheet" href="./css/style.css"/>
   </head>
   <body>
     <div class="wrapper d-flex">
@@ -115,25 +116,39 @@
       </div>
       <div class="hero d-flex" id="heroId">
         <div class="background" id="particles-js"></div>
-        <div class="lander d-flex">
+        <div class="lander grid">
           <p id="displayViewport">Page Wrapper</p>
-          <div id="hexContainer" class="d-flex">
-            <div class="hex1 d-flex">
-                <div class =" hexBorder landerHexMask d-flex">
-                  <div class ="innerHex landerHexMask d-flex"><div class="icon d-flex" id="mainHex"></div></div>
+          <div id="hexContainer" class="grid">
+            <div class="hex1 d-flex" >
+                <div class =" hexBorder d-flex">
+                  <svg xmlns="http://www.w3.org/2000/svg"      viewBox="0 0 149.59 172.73">
+                    <style>.cls-1{fill:none;stroke-miterlimit:10;stroke-width:8px;}</style>
+                    <polygon class="cls-1" points="4 45.49 4 127.24 74.8 168.12 145.59 127.24 145.59 45.49 74.8 4.62 4 45.49"/>
+                </svg>
+                  <div class ="innerHex  d-flex"><div class="icon d-flex" id="mainHex"></div></div>
                 </div>
+                <div class="hexTextContainer" id="mainHexTextContainer"><div class="mainHexContent"></div></div>
               </div>
-              <div class="hex2 d-flex">
-                <div class =" hexBorder landerHexMask d-flex">
-                  <div  class =" innerHex landerHexMask d-flex"><div class="icon d-flex" id="portfolioHex"></div></div>
+              <div class="hex2 d-flex"> 
+                <div class =" hexBorder d-flex">
+                  <svg xmlns="http://www.w3.org/2000/svg"      viewBox="0 0 149.59 172.73">
+                    <style>.cls-1{fill:none;stroke-miterlimit:10;stroke-width:8px;}</style>
+                    <polygon class="cls-1" points="4 45.49 4 127.24 74.8 168.12 145.59 127.24 145.59 45.49 74.8 4.62 4 45.49"/>
+                </svg>
+                  <div  class =" innerHex  d-flex"><div class="icon filterIcon  d-flex" id="portfolioHex"></div></div>
                 </div>
               </div>
               <div class="hex3 d-flex">
-                <div class =" hexBorder landerHexMask d-flex">
-                  <div class ="innerHex landerHexMask d-flex"><div class="icon d-flex" id="cvHex"></div></div>
+                <div class =" hexBorder d-flex">
+                  <svg xmlns="http://www.w3.org/2000/svg"      viewBox="0 0 149.59 172.73">
+                    <style>.cls-1{fill:none;stroke-miterlimit:10;stroke-width:8px;}</style>
+                    <polygon class="cls-1" points="4 45.49 4 127.24 74.8 168.12 145.59 127.24 145.59 45.49 74.8 4.62 4 45.49"/>
+                </svg>
+                  <div class ="innerHex   d-flex"><div class="icon filterIcon d-flex" id="cvHex"></div></div>
                 </div>
               </div>
             </div>
+            <p id="maintenanceMessage">This site is a work in progress!</p>
           </div>
         <div class="heroContent">
         <div class="sectionContainer" id="cvContainer">
@@ -157,29 +172,29 @@
             <div class="cvMiddleContainer d-flex">
               <div class="leftColumn">
                 <div class="workingContainer f-row d-flex">
-                  <div class="hexMask hexImg"></div>
+                  <div class="hexImg filterIcon"></div>
                   <div class="cvHeader d-flex">Working Experience</div>
                   <div class="cvContent d-flex"><h4>Vejfesten: Studio Souza</h4><p>Shading assets(MODO), Lighting scenes(MODO), Compositing(Fusion 8), VFX(Maya/Fusion 8)</p></div>
                 </div>
                 <div class="educationContainer f-row d-flex">
-                  <div class="hexImg hexMask"></div>
+                  <div class="hexImg filterIcon"></div>
                   <div class="cvHeader">Education</div>
                   <div class="cvContent"><p>-Course WebDev and WebApplication VDAB (jan-july 2020)</p><p>-Bachelor Degree 3D production and VFX (Digital arts and Entertainment (2017-2018)</p><p>-Diploma Informatics Management (2013-2014)</p></div>
                 </div>
               </div>
               <div class="rightColumn">
                 <div class="languageContainer f-row d-flex">
-                  <div class="hexImg hexMask"></div>
+                  <div class="hexImg filterIcon"></div>
                   <div class="cvHeader">Languages</div>
                   <div class="cvContent"><p>Dutch: Native language</p><p>English: Excellent</p><p>French: Basic understanding</p></div>
                 </div>
                 <div class="drivingContainer f-row d-flex">
-                  <div class="hexImg hexMask"></div>
+                  <div class="hexImg filterIcon"></div>
                   <div class="cvHeader">Driving Licence</div>
                   <div class="cvContent">Licence B (2017)</div>
                 </div>
                 <div class="referencesContainer f-row d-flex">
-                  <div class="hexImg hexMask"></div>
+                  <div class="hexImg filterIcon"></div>
                   <div class="cvHeader">References</div>
                   <div class="cvContent d-flex"><p>David Cop:</p><a href="mailto: david@studiosouza.be" class=" f-row d-flex">david@studiosouza.be</a><p>Marco Levantaci:</p><a href="mailto: marco@studiosouza.be">marco@studiosouza.be</a></div>
                 </div>
@@ -188,7 +203,7 @@
             <div class="cvBottomContainer d-flex">
               <div class="leftColumn">
                 <div class="skillsContainer f-row d-flex">
-                  <div class="hexMask hexImg"></div>
+                  <div class=" hexImg filterIcon"></div>
                   <div class="cvHeader d-flex">Skills</div>
                   <div class="cvContent f-row d-flex">
                     <div class="skillsContent"><h4>Coding and Web</h4><p>HTML5<br>CSS3<br>JS(ES6)<br>JQuery(Basics)<br>Python 3(Basics)<br>PHP<br>WordPress<br>Bootstrap<br>Git (Basics)</p></p>
@@ -201,14 +216,14 @@
               </div>
               <div class="rightColumn">
                 <div class="personalTraitsContainer f-row d-flex">
-                  <div class="hexImg hexMask"></div>
+                  <div class="hexImg filterIcon"></div>
                   <div class="cvHeader">Personal Traits</div>
                   <div class="cvContent"><h4>Soft Skills</h4><p>Passionate and Driven<br>Teamplayer<br>Studious<br>Ambitious<br>Responsible<br>Communicative<br>Creative<br>Supportive</p></div>
                 </div>
               </div>
             </div>
             <div class="cvLearningContainer f-row d-flex">
-                <div class="hexImg hexMask"></div>
+                <div class="hexImg filterIcon"></div>
                 <div class="cvHeader">Interested in Learning</div>
                 <div class="cvContent d-flex"><p>Ruby<br>React<br>Node<br>Angular</p></div>
             </div>
@@ -218,9 +233,11 @@
       </div>
     </div>
     </div>
+   
     <script src="./js/colorPicker.js"></script>
     <script src="./js/particles.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/jquery-3.4.1.min.js"></script>
+    
   </body>
 </html>
