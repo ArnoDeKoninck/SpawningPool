@@ -106,11 +106,15 @@ function viewportSize() {
     document.documentElement.clientWidth,
     window.innerWidth || 0
   );
+
   document.getElementById("displayViewport").innerHTML =
     "Viewport Width: " + vw + " Height: " + vh;
   document.documentElement.style.setProperty("--scale", (vw * 0.9) / 500);
   vw < 560 ? (viewportSmall = true) : (viewportSmall = false);
   console.log(viewportSmall);
+  if (vw < vh) {
+    $(":root").css("--orientation", "100vw");
+  } else $(":root").css("--orientation", "100vh");
 
   if (viewportSmall == true) {
     document.getElementById("navMenu").classList.add("mobile");
