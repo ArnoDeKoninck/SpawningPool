@@ -11,7 +11,6 @@
   --heading-color: #3a506b;
   --particle-color: #27a8b7;
   --width: 100;
-  --height: 100vh;
   --scale: 3;
   --orientation: 100vw;
   --border-color: var(--bg-color);
@@ -40,8 +39,8 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .wrapper {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   flex-flow: row wrap;
   /* background-color: gray; */
 }
@@ -58,10 +57,9 @@ body {
 .heroContent {
   width: 90%;
   margin: 10% auto;
-  flex-flow: row wrap;
 }
 .lander {
-  height: var(--height);
+  height: 100vh;
   width: 100%;
   background: var(--bg-color);
   /* justify-content: center;
@@ -84,9 +82,7 @@ a {
 }
 .menu {
   position: fixed;
-  min-width: 70px;
-  max-width: 75px;
-  width: 5%;
+  width: calc(var(--orientation) * 0.1);
   height: 100vh;
   margin: 0;
   /* background-color: #27a8b7; */
@@ -122,12 +118,13 @@ a {
 .hero.mobile {
   width: 100%;
   height: 100%;
+  margin: 0;
 }
 .menu.mobile {
   position: fixed;
   margin: 2%;
-  width: 5%;
-  height: 5%;
+  width: calc(var(--orientation) * 0.15);
+  height: calc(var(--orientation) * 0.15);
 }
 .menu.mobile.sticky {
   position: fixed;
@@ -504,8 +501,8 @@ input:checked + .slider:before em {
 }
 .background {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   z-index: -1;
   background: url("../img/hex_bg.svg")
     /*radial-gradient(circle, var(--secondary-color), var(--bg-color) 80%)*/;
@@ -631,12 +628,6 @@ svg {
   -webkit-mask-image: url("../img/portfolio_icon.svg"); */
   background: url("../img/portfolio_icon.svg") no-repeat center/contain;
 }
-.cvHeader {
-  text-align: center;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-}
 .locIcon {
   background: url("../img/location_icon.png") center/contain no-repeat;
   width: 30px;
@@ -646,14 +637,19 @@ svg {
   font-weight: bold;
 }
 .cvHeaderInfo {
-  width: 100%;
+  grid-row: 2/2;
+  grid-column: 2/2;
+  text-align: center;
   padding: 0 0 3%;
-  border-bottom: 1px solid var(--heading-color);
 }
+
 .locContainer {
+  grid-row: 3/3;
+  grid-column: 2/2;
   justify-content: center;
   align-items: center;
-  margin: 10px;
+  padding: 10px;
+  border-bottom: 1px solid var(--heading-color);
 }
 #cvPicture {
   margin: auto auto 20px;
@@ -661,6 +657,9 @@ svg {
   background-size: contain;
   width: calc(100px * var(--scale));
   height: calc(100px * var(--scale));
+
+  grid-row: 1/1;
+  grid-column: 2/2;
 }
 .artIcon {
   background: url("../img/art_icon.png") center/contain;
@@ -677,10 +676,21 @@ svg {
   width: 30px;
   height: 30px;
 }
-.headerInfoContainer {
-  flex-flow: row wrap;
-  justify-content: space-evenly;
+.headerItemContainer {
   align-items: center;
+}
+.cvHeaderInfoContainer {
+  grid-row: 3/3;
+  grid-column: 1/4;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: repeat(3, 1fr);
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 2rem 1rem;
+}
+.cvheaderInfoMiddleItem {
+  grid-row: 2/2;
+  grid-column: 2/2;
 }
 .mailIcon {
   width: 30px;
@@ -697,16 +707,18 @@ svg {
 #cvContent a:hover {
   color: var(--heading-color);
 }
+#cvContent {
+  grid-template-columns: 1fr;
+  grid-template-rows: 50% 50% 50%;
+}
 .leftColumn {
   margin: 1rem;
   width: 66%;
 }
-.rightColumn {
-  width: 33%;
-}
 .cvMiddleContainer {
   background: var(--bg-color);
-  flex-flow: row nowrap;
+
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   padding: 3% 0 3%;
   border-bottom: 1px solid var(--heading-color);
   border-radius: 20px 20px 0 0;
@@ -715,6 +727,8 @@ svg {
   width: 30px;
   height: 30px;
   min-width: 30px;
+  grid-row: 1/1;
+  grid-column: 1/1;
   background: url("../img/hex_icon.svg") center/contain no-repeat;
   background-blend-mode: overlay;
 }
@@ -732,18 +746,30 @@ svg {
 }
 
 .cvContent {
-  margin: 3% 0 3% calc(30px + 1rem);
+  margin-left: 1rem;
   flex-flow: row wrap;
   width: 100%;
-}
-.f-row {
-  flex-flow: row wrap;
+
+  grid-row: 2/2;
+  grid-column: 2/2;
 }
 .cvHeader {
   padding: 0 1rem;
   font-size: 1rem;
   font-weight: bolder;
   color: var(--heading-color);
+  grid-row: 1 / 1;
+  grid-column: 1 / 1;
+
+  grid-template-rows: 1fr auto auto;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.cvHeading {
+  padding: 0 1rem;
+  font-size: 1rem;
+  font-weight: bolder;
+  color: var(--heading-color);
+  align-self: center;
 }
 .educationContainer .cvContent > * {
   padding: 1rem 0;
@@ -751,7 +777,10 @@ svg {
 .skillsContent {
   width: 50%;
 }
+
 .cvBottomContainer {
+  grid-row: 2/2;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   background: var(--bg-color);
   padding: 3% 0 3%;
 }
@@ -762,9 +791,25 @@ svg {
   border-radius: 0 0 20px 20px;
 }
 .cvLearningContainer .cvContent {
+  margin: 0;
   justify-content: center;
   text-align: center;
 }
 .containerBorder {
   box-shadow: 1px 10px 15px -6px rgba(0, 0, 0, 0.75);
+}
+.sectionContainer {
+  width: 100%;
+  height: 100%;
+}
+
+#cvInner {
+  grid-template-columns: 100%;
+}
+
+.cvItemGrid {
+  padding: 1rem;
+  display: grid;
+  grid-template-rows: 30px auto;
+  grid-template-columns: 30px auto;
 }
